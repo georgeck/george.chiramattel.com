@@ -9,11 +9,11 @@ WriteFileName: feed.atom
 @{
 	Layout = string.Empty;
 	
-	Uri baseUri = new Uri(@"http://daveaglick.com");
+	Uri baseUri = new Uri(@"http://george.chiramattel.com");
     SyndicationFeed feed = new SyndicationFeed()
     {
-        Title = new TextSyndicationContent("Dave Glick"),
-        Description = new TextSyndicationContent("Latest blog posts by Dave Glick"),
+        Title = new TextSyndicationContent("George Chiramattel"),
+        Description = new TextSyndicationContent("Latest blog posts by George Chiramattel"),
         BaseUri = baseUri,
         Items = Documents
             .Where(x => x.ContainsKey("Published"))
@@ -29,7 +29,7 @@ WriteFileName: feed.atom
                     PublishDate = x.Get<DateTime>("Published")
                 };
 
-                item.Authors.Add(new SyndicationPerson("", "Dave Glick", ""));
+                item.Authors.Add(new SyndicationPerson("", "George Chiramattel", ""));
                 return item;
             })
     };

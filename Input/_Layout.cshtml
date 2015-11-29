@@ -11,15 +11,40 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
 
 	<title>George Chiramattel@(string.IsNullOrWhiteSpace(Title) ? string.Empty : " - " + Title)</title>
-        <meta name="description" content="The personal blog of George Chiramattel" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">        
 
-        <link type="application/rss+xml" rel="alternate" title="Dave Glick" href="/feed.rss" />
-        <link type="application/atom+xml" rel="alternate" title="Dave Glick" href="/feed.atom" />
-        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <meta name="author" content="George Chiramattel">
+        <meta name="copyright" content="George Chiramattel" />
+        <meta name="description" content="Home Page of George Chiramattel">
+        <meta content="George Chiramattel, .NET, C#, Chiramattel, Blog, Redis" name="keywords" />
+        <meta name="DC.title" content="The Home page of George Chiramattel" />
+
+        <meta name="application-name" content="George Chiramattel" />
+        <meta name="msapplication-starturl" content="http://george.chiramattel.com" />
+        <meta name="msapplication-tooltip" content="Home Page of George Chiramattel" />
+        <meta name="msapplication-task" content="name=George Chiramattel's Blog;action-uri=http://george.chiramattel.com/blog;icon-uri=/favicon.ico" />
+        <meta name="msapplication-task" content="name=George Chiramattel on Twitter;action-uri=http://twitter.com/georgeck;icon-uri=/twitter.ico" />
+        <meta name="msapplication-task" content="name=George Chiramattel on Facebook;action-uri=http://www.facebook.com/georgeck;icon-uri=/facebook.ico" />
+        <meta name="msapplication-task" content="name=George Chiramattel on LinkedIn;action-uri=http://in.linkedin.com/in/georgeck;icon-uri=/linkedin.ico" />
+
+        <link rel="shortcut icon" href="/favicon.ico" type="image/ico" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
         <link rel="icon" href="/favicon.ico" type="image/x-icon">
         <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
         <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+
+        <link rel="meta" type="application/rdf+xml" title="FOAF" href="foaf.rdf" />
+        <link rel="me" type="text/html" href="http://profiles.google.com/georgeck?rel=me">
+        <link rel="me" type="text/html" href="http://twitter.com/georgeck">
+        <link rel="me" type="text/html" href="http://facebook.com/georgeck">
+        <link rel="me" type="text/html" href="https://plus.google.com/109923857883975235242/about">
+        <link rel="me" type="text/html" href="http://in.linkedin.com/in/georgeck">
+
+        <link rel="canonical" href="http://george.chiramattel.com" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">        
+
+        <link type="application/rss+xml" rel="alternate" title="George Chiramattel" href="/feed.rss" />
+        <link type="application/atom+xml" rel="alternate" title="George Chiramattel" href="/feed.atom" />
 
         <link href="/Content/bootstrap/bootstrap.css" rel="stylesheet" />
         <link href="/Content/prettify.css" rel="stylesheet">
@@ -30,17 +55,11 @@
         <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
-
-        <meta name="application-name" content="Dave Glick" />
-        <meta name="msapplication-tooltip" content="Dave Glick" />
-        <meta name="msapplication-starturl" content="/" />
-
-        <meta property="og:title" content="Dave Glick@(string.IsNullOrWhiteSpace(Title) ? string.Empty : " - " + Title)" />
-        @* <meta property="og:image" content="@Blog.Image" /> *@
+        <meta property="og:title" content="George Chiramattel@(string.IsNullOrWhiteSpace(Title) ? string.Empty : " - " + Title)" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="http://daveaglick.com/@(PathHelper.RemoveExtension(Model.String("RelativeFilePath")).Replace("\\", "/"))" />
-        <!-- TODO: More social graph meta tags -->
+        <meta property="og:url" content="http://george.chiramattel.com/@(PathHelper.RemoveExtension(Model.String("RelativeFilePath")).Replace("\\", "/"))" />
 
+        <!-- TODO: More social graph meta tags -->
         <script src="/Scripts/jquery-2.1.1.min.js"></script>
         <script src="/Scripts/bootstrap.min.js"></script>     
         <script src="/Scripts/prettify.js"></script>
@@ -77,8 +96,7 @@
                                 <!-- Collect the nav links, forms, and other content for toggling -->
                                 <div class="collapse navbar-collapse" id="navbar-collapse">
                                         <ul class="nav navbar-nav navbar-right">
-                                                <li><a href="http://wyam.io/">Wyam</a></li>
-                                                <li><a href="http://fluentbootstrap.com/">FluentBootstrap</a></li>
+                                                <li><a href="/projects">Projects</a></li>
                                                 <li><a class="hidden-xs">|</a><a class="visible-xs-block">-</a></li>
                                                 <li><a href="/about">About</a></li>
                                                 <li><a href="/posts">Archive</a></li>
@@ -128,7 +146,7 @@
                                         <div class="col-md-12">
                                         <ul class="list-inline text-center">
                                                 <li>
-                                                <a href="https://twitter.com/daveaglick">
+                                                <a href="https://twitter.com/georgeck">
                                                         <span class="fa-stack fa-lg">
                                                         <i class="fa fa-circle fa-stack-2x"></i>
                                                         <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -136,7 +154,7 @@
                                                 </a>
                                                 </li>
                                                 <li>
-                                                <a href="https://github.com/daveaglick">
+                                                <a href="https://github.com/georgeck">
                                                         <span class="fa-stack fa-lg">
                                                         <i class="fa fa-circle fa-stack-2x"></i>
                                                         <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -145,11 +163,11 @@
                                                 </li>
                                         </ul>
                                         <p class="copyright text-muted">
-                                                Copyright © @DateTime.Now.Year by George Chiramattel. All jams and jellies preserved. The opinions expressed herein are my own and do not represent those of my employer or any other third-party views in any way. This work is licensed under a @Bs.Link("Creative Commons Attribution 4.0 International License", "http://creativecommons.org/licenses/by/4.0/").AddAttribute("rel", "license").
+                                                Copyright © @DateTime.Now.Year by George Chiramattel. The opinions expressed herein are my own and do not represent those of my employer or any other third-party views in any way. This work is licensed under a @Bs.Link("Creative Commons Attribution 4.0 International License", "http://creativecommons.org/licenses/by/4.0/").AddAttribute("rel", "license").
                                                 <br />
                                                 <a href="/feed.rss"><i class="fa fa-rss"></i> RSS Feed</a> | <a href="/feed.atom"><i class="fa fa-rss"></i> Atom Feed</a>
                                                 <br />
-                                                <a href="https://github.com/daveaglick/daveaglick"><i class="fa fa-github"></i> This Site on GitHub</a> | <strong><a href="http://wyam.io">Generated by Wyam</a></strong>
+                                                <a href="https://github.com/georgeck/georgeck"><i class="fa fa-github"></i> This Site on GitHub</a> | <strong><a href="http://wyam.io">Generated by Wyam</a></strong>
                                         </p>
                                         </div>
                                 </div>
@@ -176,7 +194,7 @@
                                 m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
                         })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
                 
-                        ga('create', 'UA-54470483-1', 'auto');
+                        ga('create', 'UA-74336-1', 'auto');
                         ga('send', 'pageview');
                 
                         // Background                        
@@ -192,6 +210,7 @@
                         var pattern = t.generate(header.clientWidth, header.clientHeight);
                         header.setAttribute('style', 'background-image: ' + pattern.dataUrl);                        
                 </script>
+                
         </body>
 </html>
 

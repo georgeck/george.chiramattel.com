@@ -1,0 +1,99 @@
+Title: Projects
+---
+<h3><a href="http://wwww.FlipThroughMovies.com">Flip Through Movies</a></h3>
+<p>
+	Experience a new way to browse through vast collection of English and regional movies.
+	Experience <a href="http://wwww.FlipThroughMovies.com">FlipThroughMovies.com</a>.
+	This was the entry that myself and three of my friends worked on for the 2010 Yahoo
+	OpenHack Bangalore.</p>
+<p>
+	Here are some of its feature:</p>
+<ul>
+	<li>Explore the collection of movies</li>
+	<li>Zoom in/out of movies smoothly</li>
+	<li>View details in a movie badge</li>
+	<li>Sort & filter movies based on criteria</li>
+	<li>Apply cumulative filters</li>
+	<li>Search for related movies</li>
+</ul>
+<center>
+	<h3>
+		Watch a video demo of the site</h3>
+	<a href="http://www.youtube.com/v/fy6nR1naxOY&hl=nb_NO&fs=1&" onclick="return openYouTube(this)"
+		class="highslide">
+		<img style="border: none; cursor: pointer" src="http://s3.flipthroughmovies.com/2/images/YouTube.jpg"
+			title="Demo video" alt="Demo Video" width="569" height="357" />
+	</a>
+	<br />
+</center>
+
+<h3>
+    &nbsp;</h3>
+<h3>
+    Dejavu
+</h3>
+<p>
+    Another fun project that I worked on is Dejavu. Dejavu is a Windows 7 Shell Extension
+    that allows the user to version Windows 7 Libraries in a way that is very similar
+    to TimeMachine in Mac. Dejavu uses Git versioned files system. Once a file is 
+    added to Dejavu, the user can use the Git engine to sync the files remotely to 
+    any other location or machine.</p>
+<p>
+    &nbsp;You can learn more about this by watching the following Video.<br />
+</p>
+<center>
+    <iframe src="http://player.vimeo.com/video/7010909?portrait=0" width="572" height="458"
+        frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</center>
+
+
+@section Header {
+    
+    <div class="site-heading">
+        <h1>Projects</h1>
+    </div>
+    <!-- Highslide JS START -->
+    <script type="text/javascript" src="http://s3.flipthroughmovies.com/2/highslide-with-html.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.1/swfobject.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://s3.flipthroughmovies.com/2/highslide.css" />
+    <script type="text/javascript">
+        // Apply the Highslide settings
+        hs.graphicsDir = 'http://s3.flipthroughmovies.com/2/images/highslide/';
+        hs.outlineType = 'rounded-white';
+        hs.outlineWhileAnimating = true;
+        hs.allowSizeReduction = false;
+        // always use this with flash, else the movie will be stopped on close:
+        hs.preserveContent = false;
+        hs.wrapperClassName = 'draggable-header no-footer';
+    
+    
+        // create a shorthand function so we don't need to put all this in the opener's onclick
+        function openYouTube(opener) {
+            var returnValue;
+    
+            // Safari Mobile doesn't have Flash, so we just let the device use the built-in 
+            // YouTube viewer.		
+            if (/(iPhone|iPod|iPad)/.test(navigator.userAgent)) {
+                opener.href = opener.href.replace('/v/', '/watch?v=');
+                returnValue = true;
+            }
+    
+            else returnValue = hs.htmlExpand(opener, {
+                objectType: 'swf',
+                objectWidth: 1280,
+                objectHeight: 720,
+                width: 1280,
+                swfOptions: {
+                    params: {
+                        allowfullscreen: 'true'
+                    }
+                },
+                maincontentText: 'You need to upgrade your Flash player'
+            });
+    
+            return returnValue;
+        }  
+    
+    </script>
+    <!-- Highslide JS End -->
+}
