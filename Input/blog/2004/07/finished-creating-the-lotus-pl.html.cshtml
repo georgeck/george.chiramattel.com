@@ -1,0 +1,37 @@
+Title: Finished creating the Lotus plugin for Timex Datalink
+Published: 7/20/2004
+Tags:
+  - Technology
+----
+<table ID="Table1">
+    <tr>
+	   <td valign="top"><img alt="Timex PIM Software" src="http://www.chiramattel.com/george/blog/images/Timex_PIM.png"
+			width="320" height="231" border="0">
+	   </td>
+    	<td valign="top">As mentioned in my previous <a href="http://www.chiramattel.com/george/blog/archives/000028.html">
+    			blog</a> I was working on a Lotus Notes plugin for the Timex PIM software. 
+    		I am happy to say that the basic code is now functional and I will be able to 
+    		upload a version very soon.
+    		<br>
+    		<br>
+    		<b>Pending Issues</b>:<br>
+    		<ul>
+    			<li>
+    			Memory Leak - The PIM software expects the plugin writes to allocate memory 
+    			using the operator 'new'. According to documentation, the software will 
+    			internally  free this memory. I think this is causing a strange bug&nbsp;(I am not 
+    			sure about this). The Timex PIM software is compiled using&nbsp;and older 
+    			version of MFC than what I use (for creating the plugin). So when the PIM 
+    			software tries to delete memory that I allocate, it throws an exception and 
+    			will result in a leak. I guess they should have used a library independent way 
+    			of memory allocation like the CoTaskMemAlloc().&nbsp;&nbsp;
+    			<li>
+    				DSN configuration - The code that I wrote uses the ODBC driver for Lotus Notes 
+    				to get the data. If I have to distribute the plugin, I will have to provide 
+    				some utility to set up the DSN.
+    			</li>
+    		</ul>
+    	</td>
+    </tr>
+</table>
+                        

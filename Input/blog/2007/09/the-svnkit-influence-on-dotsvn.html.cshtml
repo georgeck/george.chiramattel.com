@@ -1,0 +1,20 @@
+Title: The SVNKit influence on DotSVN
+Published: 9/12/2007
+Tags:
+  - Technology
+  - .Net
+  - DotSVN
+  - OpenSource
+----
+ <p>I used two good references when doing DotSVN. The first is (obviously) the SVN code itself. It is written in C using <a href="http://apr.apache.org/">Apache Portable Runtime</a> (APR). </p>
+
+<p>What I would like to highlight is the second reference that I used - which is <a href="http://svnkit.com/">SVNKit</a>. SVNKit is:<br />
+<blockquote>... a pure Java Subversion client library. You would like to use SVNKit when you need to access or modify Subversion repository from your Java application, be it a standalone program, plugin or web application. Being a pure Java program, SVNKit doesn't need any additional configuration or native binaries to work on any OS that runs Java.</blockquote></p>
+
+<p>I used VStudio's 'Java Language Conversion Assistant 3.0' to create a C# version of the SVNKit code. Though it had  thousands of migration errors, this exercise gave me a good idea of the effort involved in  completing DotSVN. I used the skeleton code from the migration as the basis for most of the my classes. </p>
+
+<p>DotSVN has a different namespace structure (as shown in the figure below):<br />
+<img src="http://farm2.static.flickr.com/1238/1361045865_793376d886_o.png" width="236" height="271" alt="DotSVN Namespace and project structure" /></p>
+
+<p>DotSVN depends more heavily on .Net base class libraries (like Deflate stream, custom Date parsing etc). It also uses generics and collection classes more efficiently.<br />
+</p>

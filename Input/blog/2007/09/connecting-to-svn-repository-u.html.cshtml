@@ -1,0 +1,63 @@
+Title: Connecting to SVN repository using DotSVN
+Published: 9/12/2007
+Tags:
+  - Technology
+  - .Net
+  - OpenSource
+----
+ In this post I would like to highlight how easy it is to connect to SVN repository using <a href="http://www.dotsvn.net">DotSVN</a>.<br>
+<br>
+Steps to follow:<br>
+
+1) Create an instance of <code>ISVNRepository</code> using the <code>SVNRepositoryFactory</code>
+<br>
+<pre class="prettyprint"><code>
+// The path to the root of an SVN FSFS repository
+string repositoryPath = "file://" + "SomeValidPathToFSFS";
+
+// Creates an ISVNRepository driver according to the protocol 
+// that is to be used to access a repository.
+ISVNRepository repository = SVNRepositoryFactory.Create(new SVNURL(repositoryPath));
+repository.OpenRepository();
+</code></pre>
+
+2) Now that we have a connection to the repository, we can get contents using the <code>GetDir</code> method.<br>
+<pre class="prettyprint"><code>
+// Dictionary to receive the SVN properties
+IDictionary<string, string> properties = new Dictionary<string, string>();
+
+// Now we call GetDir to get the contents at the specified path
+// Here we specified an empty string to get the contents of the root
+// Second argument is the version, -1 indicated the latest version
+// Third argument is the property collection
+ICollection<SVNDirEntry> dirEntries = repository.GetDir("", -1, properties);
+</code></pre>
+
+The <code>SVNDirEntry</code> representation of a versioned directory entry, It contains
+<ul>
+	<li>The Entry name</li>
+	<li>Entry kind (is it a file or directory).</li>
+	<li>File size (in case an entry is a file)</li>
+	<li>The last changed revision</li>
+	<li>The date when the entry was last changed</li>
+	<li>The name of the author who last changed the entry</li>
+	<li>The commit log message for the last changed revision.</li>
+</ul>
+
+3) Now we can iterate through the <code>SVNDirEntry</code> collection.
+<pre class="prettyprint"><code>
+foreach (SVNDirEntry dirEntry in dirEntries)
+{
+    string DirName = dirEntry.Name;
+    System.Diagnostics.Debug.WriteLine(DirName);
+}
+</code></pre>
+
+And that is it. We can also call other methods in the repository like
+<pre class="prettyprint"><code>
+// Gets the Universal Unique IDentifier (UUID) of this repository 
+string repostoryUUID = repository.GetRepositoryUUID(true);
+
+// Returns the latest revision of this repository
+long latestRev = repository.GetLatestRevision();
+</code></pre>

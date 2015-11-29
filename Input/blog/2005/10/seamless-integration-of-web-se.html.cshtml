@@ -1,0 +1,81 @@
+Title: Seamless Integration of Web Services
+Published: 10/18/2005
+Tags:
+  - Technology
+  - OpenSource
+----
+<p>The following is an article that I co-authored (along with Brijesh Chenan and Rahul Sawhney) almost 4 years back. We represented <a href="http://www.bangalore.philips.com/">Philips Software </a>and presented this for the ‘Road Ahead Contest’ conducted by <a href="http://www.microsoft.com/india/">Microsoft India</a> and got selected as the best paper :-)</p>
+
+<p>But why talk about this now? <br />
+Well, I came across this document when I was going through some of my old papers and what struck me was that, most of the stuff that we predicted in this paper have (or is in the process of) become a reality.  So please read on…</p>
+
+<p><strong>Introduction</strong><br />
+Today we are witnessing another era of explosive growth on the web. The web has come a long way, from static content to dynamic content and now to programmable web services. The Internet has metamorphosed into a pervasive computing domain, providing value-added services. This means that the web is now available in ways never imagined in the past.</p>
+
+<p>The web is now mature enough in terms of availability of services. All the functionality that you would want is probably already there on the web. But the truth is that only a knowledge worker can harness the full power of the programmable web. Further there is no integration of web services into applications that people use daily. It is time to start thinking about bringing this power to the common man.</p>
+
+<p>This paper proposes some enhancements to the existing web services framework for better integration between web services and applications accessing them.</p>
+
+<p><strong>Need for Seamless Integration</strong><br />
+While embarking on a web services approach, several important questions come to mind. </p>
+
+<p>As web service providers,<br />
+ * How can we make it easier for our customers to use our web services?<br />
+ * How can we increase our client base?<br />
+ * How can we ensure a viable business model around our web services?</ul></p>
+
+<p>As application developers,<br />
+ * How can we make our applications more powerful by harnessing the power of web services?<br />
+ * How can we provide our customers access to web services that are “yet to be developed”?<br />
+ * How can we ensure that our applications are state of the art and provide the latest features without massive development costs?</p>
+
+<p>The answers to these questions lead us to the next generation of killer applications.<br />
+These applications will be able to utilize the zillions of services out there and the ones that are yet to come. Armed with the knowledge of web services, they will be able to proactively help users in getting their work done. As developers we should focus not only on exposing services but also be capable of locating and binding to existing and future services on the net.</p>
+
+<p>To illustrate, let’s look at the following scenario.</p>
+
+<p><strong>Scenario</strong></p>
+
+<p>Suppose you are interested in online trading and would like to check out the top-ten movers. Further, you might also want to transact on them. In today’s world, typically you would use your browser to search the web for online stock trading services. You would then choose one of these services and then navigate to its site. Here, you would click the link for the top-ten movers. In the list returned, you find MSFT [Symbol for Microsoft Corporation stock at NASDAQ] interesting and want to buy 100 shares. To do this, you would click the corresponding link on the site and make the transaction. Now, suppose you want more information about MSFT from some other service, or make the trade elsewhere, you would have to perform the same operations all over again at the second site. You obviously cannot use the data you obtained from the first site to invoke services at the second site.</p>
+
+<p>Let us see how the killer applications of tomorrow alter this scenario. You fire up the next generation Excel and run a web query on the top-ten movers. The web query returns the results from the web service and formats it on screen. You find MSFT interesting, so you right click on the symbol ‘MSFT’. The context menu shows you the option “Web Actions -> Get Detailed Stock Quote…”.  When you click this option, it returns the latest stock quote update on MSFT. You then decide to buy 100 shares, so you right click and select “Web Actions à Buy this stock…” on the context menu and go on to complete the transaction (See figure below). </p>
+
+<p>Using Excel, you query your portfolio (probably from another web service) and see your open positions. You see that you are long on ‘MSFT’ and decide to sell 50. You go to the corresponding field and edit it to 50. Excel automatically prompts you “Do you want to sell?” You press “Yes” to complete the transaction.</p>
+
+<p><img alt="Excel" src="http://www.chiramattel.com/george/blog/images/Excel.jpg" width="519" height="387" /></p>
+
+<p> <strong>How to realize this</strong></p>
+
+<p>This can be achieved through a combination of two enhancements to current web services framework. <br />
+ * Mapping between data and web methods<br />
+ * Mapping between common action and web service methods</p>
+
+<p><strong>Mapping between data and web methods</strong></p>
+
+<p>The WSDL [Web Service Description Language] file provides the application with an interface description of that web service. Each of these web methods returns XML data. With the current standards, it is not possible for the application to figure out what further can be done on these data. The application will have to rely on custom hard-coded logic to invoke further actions on the data. If we have another XML file that will contain the mapping between the data elements and what actions can be invoked on them, the application can be much more proactive in helping the user get the work done. These actions relate to other web-service methods, which could be provided by either the same or some other web-service provider.</p>
+
+<p>In short we propose to provide a link to an XML file within the WSDL file for a web-service. Bodies such as W3C [World Wide Web Consortium] can standardize the schema for this XML file.</p>
+
+<p><img alt="Mapping between data and web methods" src="http://www.chiramattel.com/george/blog/images/MappingData.png" width="630" height="526" /></p>
+
+<p>With this in place, the application in the illustrated Scenario will be able to provide context actions like “Get Latest Stock Quote” and “Buy this stock” because <u>it automatically knows what can be done with the data</u>. </p>
+
+<p>We feel that the concept of associating web services and data is very powerful. It opens up new avenues for applications to interact with multiple web services on behalf of the user without him having to write any programming logic.</p>
+
+<p><strong>Mapping between common actions and web service methods</strong></p>
+
+<p>We have seen how the mapping between data and actions will enable the user to invoke services for that data. But the user has to initiate this action, probably through a context menu. We can take this to the next level by making our applications intelligent so as to invoke corresponding services automatically. </p>
+
+<p>In the above Scenario, when the user modified the field containing the number of stocks in his portfolio, Excel understood that the user is doing an ‘Edit’ action on that data item (which was returned by a web service). It is now up to Excel to find out which method corresponds to the ‘Edit’ action for the data item being edited. Once this method is identified, consent from the user is obtained to invoke it on the server to make the transaction.</p>
+
+<p><img alt="Mapping between common actions and web service methods" src="http://www.chiramattel.com/george/blog/images/MappingActions.png" width="585" height="446" /></p>
+
+<p>A standardizing body can define an XML file that lists certain commonly performed actions (e.g. verbs like edit and delete). Next generation applications should be aware of these verbs defined in this XML file and be able to translate user-actions to them. A service provider while publishing the service can also provide a mapping XML file. This file specifies the verbs associated with data that is returned from each web method.  In turn, each verb is mapped to a web method that is invoked when the user performs the corresponding action at the application side. The schema for this file should also be standardized.</p>
+
+<p><strong>Conclusion</strong></p>
+
+<p>The Internet will continue to evolve as a source of computational services rather than a repository of content. The web will gradually move towards a state where more and more value-added services will be presented as web services. The killer applications of tomorrow will be the ones that can seamlessly integrate these web services. These applications will replace the browser as the main interaction point to the web and blur the boundary between the local and the remote.</p>
+
+<p>The standards of today focus more on how to locate, identify and bind to services. We should also focus on standards that define consumption of these services. This will allow applications to behave intelligently to identify and invoke services from disparate sources, transparent to the user.</p>
+
+<p>You can also download the PowerPoint that was made for this contest <a href="http://www.chiramattel.com/george/blog/archives/Seamless%20Integration%20Of%20Web%20Services.ppt">here</a>.<br />

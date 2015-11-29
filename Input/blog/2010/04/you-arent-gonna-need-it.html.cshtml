@@ -1,0 +1,40 @@
+Title: You aren't gonna need it!
+Lead: Discussion on the topic of YAGNI
+Published: 4/12/2010
+Tags:
+  - Design
+----
+<p>There is an abbreviation for it - <a href="http://en.wikipedia.org/wiki/You_ain't_gonna_need_it">YAGNI</a>. What does it mean? Let me explain by a story.</p>
+
+<p>There was this project that was started under a lot of time pressure (btw, which project is not?). And since, success was crucial, the best minds were assembled to form the team. Considering the urgency and the need to get going fast, the team hurried through the requirements. When it was time to start implementation, it was clear that there were two distinct schools of thought on how to proceed. </p>
+
+<p>
+	The design-purists wanted to make sure that the system could accommodate all scenarios that were considered. They were also creative enough to come up with some very reasonable use cases that were not thought of initially.<br />
+	The second group, guided by the principles of agile-development, was crying out - yes, you guessed right - YAGNI. They had their rational:
+</p>
+
+<ul>
+	<li>Every additional feature that is built is a liability to maintain, and</li>
+	<li>Only time can tell which features would eventually become useful.</li>
+</ul>
+Both camps were adamant on their stance. On one hand, there were claims that said ''design should be elegant; and if it's worth doing it, it should be done right'. On the other hand, the agile camp was equally strong with their set of arguments.  This is the after-effect of having a team with good caliber people with strong opinions.
+
+<p>Now that we have reached this far in the story, let's analyze how to proceed. To make it more interesting, let's assume that the management decided to hire YOU as a consultant to help resolve this situation.</p>
+
+<blockquote>Did I hear YOU say - 'Nice try George - why drag ME into this mess'? I agree - it's not fair on my part to create a plot and put YOU on a spot?. So, I will help you by joining in the analysis.</blockquote>
+
+<p>Let's start by acknowledging that this is a classic conflict scenario. The real problem comes when you become 'too agile' or 'too formal'. In simple terms, extremes - be it over-design or under-design - are not good. You have to have a pragmatic solution.</p>
+
+<blockquote>'Easy to say George, but how do you suppose I solve this problem?'</blockquote>
+
+<p>Let's continue the analysis. It's good to know the variability in the system. After all, architecture is all about managing variability and <a href="http://martinfowler.com/ieeeSoftware/whoNeedsArchitect.pdf">protecting those things that are difficult to change against - well, change</a>! But if you design the system to accommodate all possible variability, the system might become too complex. That is the time when 'being agile' - which essentially means 'the readiness to change' - helps. In fact, change can be less costly if the system is not complex to start with. So, if you cannot anticipate all variability, it might be more pragmatic to be simple to start with, but at the same time be prepared for change, the inevitable.</p>
+
+<p>So, it's good to think through all possible scenarios, as a thought exercise, but resist the urge to go ahead and implement all of them. Also, being agile is not an excuse to be unaware of complexities. Ignorance is bliss, but can turn out to be costly later.</p>
+
+<p>Both camps should be aware that in a solution space, there can be <a href="http://en.wikipedia.org/wiki/Maxima_and_minima">local minimum and global minimum</a>. Being pragmatic is to invest time to be aware of the global minimum (with the knowledge available at that point) but resist the urge to build for it. Instead, focus on the critical few that will get you going.</p>
+
+<blockquote>'Ah ha! So I get it George, I should check with the agile camp to see if they are being plain lazy. And also check with the purists to see if they are getting carried away by the elegance of the design and inadvertently make the system too complex'.</blockquote>
+
+<p>Yes, so I conclude the story and take the author's privilege to declare that YOU managed to resolve the conflict and came out victorious. Congrats YOU!</p>
+
+<p>p.s. I encourage you to read up on the following related topics - <a href="http://en.wikipedia.org/wiki/KISS_principle">K.I.S.S</a> and <a href="http://en.wikipedia.org/wiki/Don%27t_repeat_yourself">D.R.Y</a>.</p>

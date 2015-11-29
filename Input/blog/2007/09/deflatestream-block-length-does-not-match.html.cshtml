@@ -1,0 +1,28 @@
+Title: "\"Block length does not match with its complement.\" in DeflateStream"
+Published: 9/09/2007
+Tags:
+  - Technology
+  - .Net
+----
+ I wanted to discuss a problem that I faced while implementing the repository layer of <a href="http://dotsvn.net">DotSVN</a>. <br>
+When I tried to use the System.IO.Compression.DeflateStream to decompress the repository, I get the exception 'System.IO.InvalidDataException' : "Block length does not match with its complement."<br>
+<br>
+I Googled around an found <a href="http://connect.microsoft.com/VisualStudio/feedback/ViewFeedback.aspx?FeedbackID=97064">this</a> article that explains the problem. The feedback from Microsoft on how to fix this issue is as follows:<br>
+<blockquote>...skipping past the first two bytes solved the problem. Those bytes are part of the zlib specification (RFC 1950), not the deflate specification (RFC 1951). Those bytes contain information about the compression method and flags.<br>
+<br>
+The zlib and deflate formats are related; the compressed data part of zlib-formatted data may be stored in the deflate format. In particular, if the compression method in the zlib header is set to 8, then the compressed data is stored in the deflate format. This is true in the case of the stream you submitted, which was taken from a pdf file.<br>
+<br>
+Our DeflateStream, on the other hand, represents the deflate specification (RFC 1951) but not RFC 1950. So your workaround of skipping past the first 2 bytes to get to the deflate data will definitely work.</blockquote>
+
+So the actual code would look like the following:<br>
+<pre class="prettyprint"><code>
+// create a file stream, as before
+FileStream fs = new FileStream("file", FileMode.Open);
+
+// skip first two bytes
+fs.ReadByte();
+fs.ReadByte();
+
+// now create the deflate stream and proceed as usual
+DeflateStream l_Stream = new DeflateStream(fs, CompressionMode.Decompress);
+</code></pre> 

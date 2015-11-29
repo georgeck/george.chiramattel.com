@@ -64,13 +64,13 @@ public static class HtmlHelperExtensions
 
 ---
 
-Pipelines.Add("Posts",
-	ReadFiles(@"posts\*.md"),
+Pipelines.Add("Blog",
+	ReadFiles(@"blog\*.md"),
 	FrontMatter(Yaml()),
 	Markdown(),
 	Replace("<pre><code>", "<pre class=\"prettyprint\"><code>"),
 	Concat(
-		ReadFiles(@"posts\*.cshtml").Where(x => Path.GetFileName(x)[0] != '_' && Path.GetFileName(x) != "index.cshtml"),
+		ReadFiles(@"blog\*.cshtml").Where(x => Path.GetFileName(x)[0] != '_' && Path.GetFileName(x) != "index.cshtml"),
 		FrontMatter(Yaml())		
 	),
 	Razor(typeof(RazorPage)),
@@ -82,13 +82,13 @@ Pipelines.Add("Posts",
 );
 
 Pipelines.Add("Content",
-	ReadFiles("*.md").Where(x => !Path.GetDirectoryName(x).EndsWith("posts")),
+	ReadFiles("*.md").Where(x => !Path.GetDirectoryName(x).Contains(@"\blog")),
 	FrontMatter(Yaml()),
 	Markdown(),
 	Replace("<pre><code>", "<pre class=\"prettyprint\"><code>"),
 	Concat(
 		ReadFiles("*.cshtml").Where(x => Path.GetFileName(x)[0] != '_' 
-			&& (!Path.GetDirectoryName(x).EndsWith("posts") || Path.GetFileName(x) == "index.cshtml")),
+			&& (!Path.GetDirectoryName(x).Contains(@"\blog") || Path.GetFileName(x) == "index.cshtml")),
 		FrontMatter(Yaml())		
 	),
 	Razor(typeof(RazorPage)),
