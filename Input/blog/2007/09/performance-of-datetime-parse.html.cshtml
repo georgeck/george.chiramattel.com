@@ -5,12 +5,12 @@ Tags:
   - .Net
   - Performance
 ----
- I would like to write a series of posts describing the various performance issues I faced while implementing <a href="http://dotsvn.net">DotSVN</a>.<br />
+ I would like to write a series of posts describing the various performance issues I faced while implementing <a href="https://dotsvn.net">DotSVN</a>.<br />
 <br />
 In this post I discuss the performance penalty of using <strong>DateTime.Parse()</strong>.<br />
 <br />
-During my testing, I found that DotSVN was running quite slow. I used a trial version of '<a href="http://www.jetbrains.com/profiler/">JetBrains dotTrace 3.0</a>' to analyze the problem. The following is a screen-shot of the dotTrace session.<br />
-<img src="http://farm2.static.flickr.com/1298/1402710335_e5fcff9753_o.png" width="833" height="523" alt="DateTime.Parse() Performance issue" /><br />
+During my testing, I found that DotSVN was running quite slow. I used a trial version of '<a href="https://www.jetbrains.com/profiler/">JetBrains dotTrace 3.0</a>' to analyze the problem. The following is a screen-shot of the dotTrace session.<br />
+<img src="https://farm2.static.flickr.com/1298/1402710335_e5fcff9753_o.png" width="833" height="523" alt="DateTime.Parse() Performance issue" /><br />
 <br />
 As you can see, 26% of the time is spend on the method call 'System.DateTime.Parse()'. This was unacceptable. After some investigation I found that the performance of the DateTime Parse method can be improved if we give some clue on formatting of the date string. This can be achieved using the ParseExact() method.<br />
 <br />
@@ -41,6 +41,6 @@ public static DateTime parseDate(String dateString)
 </pre>
 <br />
 The performance gain is quite obvious with the following figure, which shows the dotTrace session after applying the above fix.<br />
-<img src="http://farm2.static.flickr.com/1344/1402710367_df0f99e178_o.png" width="833" height="523" alt="DateTime.ParseExact() solution" /><br />
+<img src="https://farm2.static.flickr.com/1344/1402710367_df0f99e178_o.png" width="833" height="523" alt="DateTime.ParseExact() solution" /><br />
 <br />
 As you can see, DateTime.Parse() is no longer a hot Spot. This also shows the power of dotTrace, and how it helped to quickly narrow down the issue.
