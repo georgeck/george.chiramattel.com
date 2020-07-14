@@ -19,11 +19,7 @@ Title: Projects
 <center>
 	<h3>
 		Watch a video demo of the site</h3>
-	<a href="https://www.youtube.com/v/fy6nR1naxOY&hl=nb_NO&fs=1&" onclick="return openYouTube(this)"
-		class="highslide">
-		<img style="border: none; cursor: pointer" src="https://s3.flipthroughmovies.com/2/images/YouTube.jpg"
-			title="Demo video" alt="Demo Video" width="569" height="357" />
-	</a>
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/fokwfQuRX0g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	<br />
 </center>
 
@@ -52,48 +48,5 @@ Title: Projects
     <div class="site-heading">
         <h1>Projects</h1>
     </div>
-    <!-- Highslide JS START -->
-    <script type="text/javascript" src="https://s3.flipthroughmovies.com/2/highslide-with-html.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/swfobject/2.1/swfobject.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://s3.flipthroughmovies.com/2/highslide.css" />
-    <script type="text/javascript">
-        // Apply the Highslide settings
-        hs.graphicsDir = 'https://s3.flipthroughmovies.com/2/images/highslide/';
-        hs.outlineType = 'rounded-white';
-        hs.outlineWhileAnimating = true;
-        hs.allowSizeReduction = false;
-        // always use this with flash, else the movie will be stopped on close:
-        hs.preserveContent = false;
-        hs.wrapperClassName = 'draggable-header no-footer';
     
-    
-        // create a shorthand function so we don't need to put all this in the opener's onclick
-        function openYouTube(opener) {
-            var returnValue;
-    
-            // Safari Mobile doesn't have Flash, so we just let the device use the built-in 
-            // YouTube viewer.		
-            if (/(iPhone|iPod|iPad)/.test(navigator.userAgent)) {
-                opener.href = opener.href.replace('/v/', '/watch?v=');
-                returnValue = true;
-            }
-    
-            else returnValue = hs.htmlExpand(opener, {
-                objectType: 'swf',
-                objectWidth: 1280,
-                objectHeight: 720,
-                width: 1280,
-                swfOptions: {
-                    params: {
-                        allowfullscreen: 'true'
-                    }
-                },
-                maincontentText: 'You need to upgrade your Flash player'
-            });
-    
-            return returnValue;
-        }  
-    
-    </script>
-    <!-- Highslide JS End -->
 }
